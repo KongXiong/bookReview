@@ -1,0 +1,10 @@
+%h1.current-category
+  = params[:category]
+- if @books.count == 0
+  %h1 There are no books currently in this category
+- else
+  - @books.each do |book|
+    %a{:href => "/books/#{book.id}"}
+      = image_tag book.book_img.url(:medium), class: "book"
+= link_to "Add Book", new_book_path
+= @code

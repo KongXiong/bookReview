@@ -1,0 +1,46 @@
+.row
+  .col-md-4
+    = image_tag @book.book_img.url(:medium)
+
+  .col-md-8
+    %h2= @book.title
+    %h3= @book.author
+    %h3 "Average Rating"
+    .average-review-rating{"data-score" => @average_review}
+    %span 
+      Based on
+      = @book.reviews.count
+      Reviews
+    %p= @book.description
+
+.row
+  .col-md-4
+    = render @book.reviews
+    %div
+      = link_to "Add Review", new_book_review_path(@book)
+
+
+= link_to "Back", root_path
+- if user_signed_in?
+  - if @book.user_id == current_user.id
+    = link_to "Edit", edit_book_path(@book)
+    = link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Are you sure?"}
+
+
+:javascript
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+
+:javascript
+  $('.average-review-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
