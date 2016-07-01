@@ -1,8 +1,10 @@
-.form-group.text-center
-  = simple_form_for @book, :html => { :multipart => true } do |f|
-    = select_tag(:category_id, options_for_select(@categories), :prompt => "Select a Category")
-    = f.file_field :book_img
-    = f.input :title, label: "Book Title"
-    = f.input :description
-    = f.input :author
-    = f.button :submit, class: "btn-custom2"
+.image-wrap
+  = form_image_select(@book)  
+  .form-group.text-center
+    = simple_form_for @book, :html => { :multipart => true } do |f|
+      = select_tag(:category_id, options_for_select(@categories), :prompt => "Select a Category")
+      = f.input :book_img, label: false, input_html: { onChange: 'loadFile(event)' }
+      = f.input :title, label: "Book Title"
+      = f.input :description
+      = f.input :author
+      = f.button :submit, class: "btn-custom2"

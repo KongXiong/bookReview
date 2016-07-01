@@ -197,6 +197,11 @@ p.alert, p.notice {
 
 }
 
+.image-preview {
+	margin: 0 auto;
+	padding: 2em;
+}
+
 
 /* current-category styles */
 
@@ -211,6 +216,7 @@ p.alert, p.notice {
 
 	@include background-tile;
 	margin-top: 40px;
+	
 
 	h1 {
 		margin-top: 0;
