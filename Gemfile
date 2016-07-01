@@ -15,7 +15,6 @@ gem 'bootstrap-sass'
 gem "paperclip"
 gem 'haml-rails'
 gem 'html2haml', '~> 2.0'
-gem "erb2haml", :group => :development
 
 group :development, :test do
   gem 'byebug'

@@ -43,6 +43,10 @@ p.alert, p.notice {
 	margin: 0;
 }
 
+.alert-info {
+	position: absolute;
+}
+
 
 /* Navbar/navigation styles */
 
@@ -151,8 +155,8 @@ p.alert, p.notice {
 }
 
 .book-show {
-	height: 475px;
-	width: 325px;
+	height: 390px;
+	width: 275px;
 	@include background-tile;
 }
 

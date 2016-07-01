@@ -1,10 +1,13 @@
-%h1 Edit Review
+.col-md-6.col-md-offset-3
+  .edit-review-form
 
-=simple_form_for([@book, @review]) do |f|
-  #rating-form
-    %label Rating
-  =f.input :comment
-  =f.button :submit
+    %h1 Edit Review
+
+    =simple_form_for([@book, @review]) do |f|
+      #rating-form
+        %label Rating
+      =f.input :comment
+      =f.button :submit, class: "btn-custom2"
 
 :javascript
   $('#rating-form').raty({
